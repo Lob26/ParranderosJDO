@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!--suppress SqlNoDataSourceInspection, SqlResolve -->
+<properties>
+<!--Asociado a Bebedor-->
+<entry key="visitas realizadas"><![CDATA[
+SELECT b.id, b.nombre, b.ciudad, b.presupuesto, b.cantsedes, vis.fechavisita, vis.horario
+FROM bebedor bdor, visitan vis, bar b
+WHERE bdor.id = ? AND bdor.id = vis.idbebedor AND vis.idbar = b.id
+]]></entry>
+<entry key="bebidas que le gustan"><![CDATA[
+SELECT beb.id, beb.nombre, beb.idtipobebida, beb.gradoalcohol, tb.nombre
+FROM bebedor bdor, gustan g, bebida beb, tipo_bebida tb
+WHERE bdor.id = ? AND bdor.id = g.idbebedor AND g.idbebida = beb.id AND beb.idtipobebida = tb.id
+]]></entry>
+<entry key="bebedores y numero de visitas realizadas"><![CDATA[
+SELECT id, nombre, ciudad, presupuesto, count (idbebedor) as numVisitas
+FROM bebedor
+LEFT OUTER JOIN visitan ON id = idbebedor
+GROUP BY id, nombre, ciudad, presupuesto
+ORDER BY numVisitas
+]]></entry>
+<entry key="cantidad de bebedores de una ciudad que visitan bares"><![CDATA[
+SELECT count(*)
+FROM (SELECT UNIQUE id
+      FROM bebedor
+      INNER JOIN visitan ON id = idbebedor
+      WHERE ciudad = ?)
+]]></entry>
+<entry key="cuantos bares visitan los bebedores"><![CDATA[
+--Hace join de BEBEDORES con el resultado de la subquery para asociar la informacion del bebedor
+SELECT id, nombre, ciudad, presupuesto, NVL(numbares, 0)
+FROM bebedor
+LEFT OUTER JOIN (
+    -- Agrupa las parejas por idbebedor y cuenta cuantos bares visita cada bebedor
+    SELECT idbebedor, count(*) as numbares
+    FROM (
+         --Selecciona las parejas [idbebedor, idbar] unicas de la tabla VISITAN
+         SELECT DISTINCT idbebedor, idbar
+         FROM visitan)
+    GROUP BY idbebedor) ON id = idbebedor
+]]></entry>
+<entry key="bebedores y cuantas visitas han hecho"><![CDATA[
+SELECT id, nombre, ciudad, presupuesto, NVL(numvisitas, 0)
+FROM bebedor
+LEFT OUTER JOIN (
+    SELECT idbebedor, count(*) as numvisitas
+    FROM visitan
+    GROUP BY idbebedor) ON id = idbebedor
+]]></entry>
+<!-- -->
+
+</properties>

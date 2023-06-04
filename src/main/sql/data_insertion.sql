@@ -1,0 +1,1 @@
+-- El objetivo: Ser el archivo para tener los INSERTS basicos

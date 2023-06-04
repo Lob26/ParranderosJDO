@@ -1,0 +1,10 @@
+Links de interes:
+- Que son los `new Object(){{codigo}}`? [Doble llave](https://www.baeldung.com/java-double-brace-initialization)
+- Que es YAML? [YAML](https://www.redhat.com/en/topics/automation/what-is-yaml#syntax-example)
+- Java Lambda [Link1](https://www.baeldung.com/java-8-lambda-expressions-tips), [Link2](https://www.geeksforgeeks.org/lambda-expressions-java-8/), [Documentacion](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
+- Java Functions (Supplier, Consumer, Bifunction, entre otros) [Link1](https://www.baeldung.com/java-8-functional-interfaces), [Link2](https://www.geeksforgeeks.org/functional-interfaces-java/), [Documentacion](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
+- Java Streams [Link1](https://www.baeldung.com/java-streams), [Link2](https://www.geeksforgeeks.org/stream-in-java/)
+- Java Optional [Link1](https://www.baeldung.com/java-optional), [Link2](https://www.geeksforgeeks.org/optional-class-java/), [Documentacion](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
+- Annotations [Anotaciones](https://www.baeldung.com/java-annotations), [Procesadores de anotaciones](https://reflectoring.io/java-annotation-processing/)
+- Java Reflection [Link1](https://www.baeldung.com/java-reflection), [Link2](https://www.geeksforgeeks.org/reflection-in-java/), [Documentacion](https://docs.oracle.com/javase/tutorial/reflect/)
+- Code blocks [Static](https://www.geeksforgeeks.org/static-blocks-in-java/), [Instance](https://www.geeksforgeeks.org/instance-initialization-block-iib-java/)

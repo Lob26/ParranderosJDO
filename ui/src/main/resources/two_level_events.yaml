@@ -1,0 +1,14 @@
+# Estructura
+# Label de primer nivel
+#   Label de segundo nivel: nombre del evento
+Tipo Bebida:
+  Crear: createTipoBebida
+  Recuperar por PK: retrieveOneTipoBebida
+  Recuperar todos: retrieveAllTipoBebida
+  Borrar por PK: deleteTipoBebida
+Acerca De:
+  Clean Alohandes.log: cleanAlohandesLog
+  Clean Datanucleus.log: cleanDatanucleusLog
+  Credits: about
+  Modo claro: light
+  Modo oscuro: dark
